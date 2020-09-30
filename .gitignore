@@ -1,0 +1,7 @@
+*.obj
+[Bb]in
+[Db]ebug*/
+*/*/obj/
+*/*/bin/
+*/e2e/
+*/node_modules/

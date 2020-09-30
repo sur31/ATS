@@ -1,0 +1,65 @@
+<style>
+    .vid {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div class="container">
+    <h1>Add Attendance</h1>
+   
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input 
+                formControlName="fullname"
+                id="fullname" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.fullname.touched && f.fullname.invalid" class="alert alert-danger">
+                <div *ngIf="f.fullname.errors.required">Full Name is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input 
+                formControlName="email"
+                id="email" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                <div *ngIf="f.email.errors.required">Email is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="managername">Manager Name:</label>
+            <input 
+                formControlName="managername"
+                id="managername" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.managername.touched && f.managername.invalid" class="alert alert-danger">
+                <div *ngIf="f.managername.errors.required">Email is required.</div>
+            </div>
+        </div>
+
+        <div class="container vh-100">
+            <div class="d-flex flex-column align-items-center">
+               <div class="p-1">
+                  <video #video class="vid" autoplay></video>
+               </div>
+               <div class="pb-2">
+                  <button class="btn btn-primary" (click)="capture()">Capture Image</button>
+               </div>
+               <div class="p-1">
+                  <canvas #canvas class="vid"></canvas>
+               </div>
+            </div>
+         </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
